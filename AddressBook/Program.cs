@@ -2,7 +2,7 @@
 
 //Showing Welcome Message On console.
 Console.WriteLine("==========Welcome to Address Book Programs==========");
-A createAddressBook = new AddressBook();
+AddressBook createAddressBook = new AddressBook();
 createAddressBook.ReadInput();
 Console.ReadLine();
 

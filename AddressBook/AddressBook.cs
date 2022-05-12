@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    public class AddressBook
+     class AddressBook
     {
         AddressBookMain addressMain = new AddressBookMain();
         //created List of class Type.
