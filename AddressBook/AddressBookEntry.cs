@@ -23,7 +23,7 @@ namespace AddressBook
             addNew.City = Console.ReadLine();
             Console.Write("Enter Your State Name:");
             addNew.State = Console.ReadLine();
-            Console.Write("Enter Your Zipcode:");
+            Console.Write("Enter Your Postalcode:");
             addNew.PostalCode = Convert.ToInt32(Console.ReadLine());
             Console.Write("Enter Your Phone Number:");
             addNew.PhoneNumber = Convert.ToInt64(Console.ReadLine());

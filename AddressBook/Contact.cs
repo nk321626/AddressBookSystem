@@ -17,5 +17,6 @@ namespace AddressBook
         public long PhoneNumber { get; set; }
         public string Email { get; set; }
 
-     }
+
+    }
 }
