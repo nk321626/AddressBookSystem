@@ -14,11 +14,14 @@ namespace AddressBook
         public string address;
         public string city;
         public string state;
-        public long PostalCode;
+        public int PostalCode;
         public long phoneNumber;
-        public string email;
-        //// constructor that gets user detail and store it in the current object.
-        public Contact(string firstName, string lastName, string address, string city, string state, long PostalCode, long phoneNumber, string email)
+
+        public string emailId;
+        private long postalCode;
+        private string email;
+
+        public Contact(string firstName, string lastName, string address, string city, string state, int PostalCode, long phoneNumber, string emailId)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -27,8 +30,21 @@ namespace AddressBook
             this.state = state;
             this.PostalCode = PostalCode;
             this.phoneNumber = phoneNumber;
+            this.emailId = emailId;
+        }
+
+        public Contact(string firstName, string lastName, string address, string city, string state, long postalCode, long phoneNumber, string email)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.postalCode = postalCode;
+            this.phoneNumber = phoneNumber;
             this.email = email;
         }
+
         /// <summary>
         /// To display the contact details.
         /// </summary>
@@ -39,9 +55,9 @@ namespace AddressBook
             Console.WriteLine("Address:{0}", this.address);
             Console.WriteLine("City: {0}", this.city);
             Console.WriteLine("State:{0}", this.state);
-            Console.WriteLine("Zipcode:{0}", this.PostalCode);
+            Console.WriteLine("Postalcode:{0}", this.PostalCode);
             Console.WriteLine("phone number:{0}", this.phoneNumber);
-            Console.WriteLine("Email:{0}", this.email);
+            Console.WriteLine("EmailId:{0}", this.emailId);
 
         }
     }

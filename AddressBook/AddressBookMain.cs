@@ -42,7 +42,7 @@ namespace AddressBook
                     Console.WriteLine("2. Address");
                     Console.WriteLine("3. City");
                     Console.WriteLine("4. State");
-                    Console.WriteLine("5. Zip");
+                    Console.WriteLine("5. PostalCode");
                     Console.WriteLine("6. Phone Number");
                     Console.WriteLine("7. Email");
                     int choice = Convert.ToInt32(Console.ReadLine());
@@ -65,7 +65,7 @@ namespace AddressBook
                             Console.WriteLine("Data updated successfully");
                             break;
                         case 5:
-                            data.PostalCode = Convert.ToInt64(Console.ReadLine());
+                            data.PostalCode = (int)Convert.ToInt64(Console.ReadLine());
                             Console.WriteLine("Data updated successfully");
                             break;
                         case 6:
@@ -73,7 +73,7 @@ namespace AddressBook
                             Console.WriteLine("Data updated successfully");
                             break;
                         case 7:
-                            data.email = Console.ReadLine();
+                            data.emailId = Console.ReadLine();
                             Console.WriteLine("Data updated successfully");
                             break;
                         default:
