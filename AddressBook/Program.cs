@@ -92,14 +92,14 @@ namespace AddressBook
                         while (true)
                         {
                             bookName = Console.ReadLine();
-                            if (addressBook.GetAddressBook().ContainsKey(bookName))
+                            if (!addressBook.GetAddressBook().ContainsKey(bookName))
                             {
-                                addressBook.ViewContact(bookName);
+                                Console.WriteLine("Book Name Doesnt Exist");
                                 break;
                             }
                             else
                             {
-                                addressBook.CheckAddressBook(bookName);
+                                addressBook.ViewContact(bookName);
                                 break;
                             }
                         }
