@@ -14,21 +14,19 @@ namespace AddressBook
         public string address;
         public string city;
         public string state;
-        public int PostalCode;
+        public int Zip;
         public long phoneNumber;
 
         public string emailId;
-        public int postalCode;
-        public string email;
 
-        public Contact(string firstName, string lastName, string address, string city, string state, int PostalCode, long phoneNumber, string emailId)
+        public Contact(string firstName, string lastName, string address, string city, string state, int Zip, long phoneNumber, string emailId)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
             this.city = city;
             this.state = state;
-            this.PostalCode = PostalCode;
+            this.Zip = Zip;
             this.phoneNumber = phoneNumber;
             this.emailId = emailId;
         }
