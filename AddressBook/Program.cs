@@ -11,7 +11,7 @@ namespace AddressBook
         public static void Main(string[] args)
         {
             //Display Welcome Message
-            Console.WriteLine("**********Welcome To Address Book Program***********");
+            Console.WriteLine("Welcome To Address Book Program");
             //Create Objects
             AddressBookEntry addressBook = new AddressBookEntry();
             while (true)
