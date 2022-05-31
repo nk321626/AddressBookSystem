@@ -29,7 +29,7 @@ namespace AddressBook
                 }
                 else
                 {
-                    addressContactBook[bookName].contactList.Add(personDetail.firstName + " " + personDetail.lastName,personDetail);
+                    addressContactBook[bookName].contactList.Add(personDetail.firstName + " " + personDetail.lastName, personDetail);
                     Console.WriteLine("Added Contact SuccessFully\n");
                 }
             }
@@ -57,18 +57,18 @@ namespace AddressBook
         //Method to view single contact
         public void ViewContact(string personName, string bookName)
         {
-                foreach (var contact in addressContactBook[bookName].contactList)
+            foreach (var contact in addressContactBook[bookName].contactList)
+            {
+                if (contact.Key.Equals(personName))
                 {
-                        if (contact.Key.Equals(personName))
-                        {
-                            Console.WriteLine("First Name : {0} || Last Name : {1}", contact.Value.firstName, contact.Value.lastName);
-                            Console.WriteLine("Address : {0} ", contact.Value.address);
-                            Console.WriteLine("City Name : {0} || State Name : {1} || ZipCode : {2}", contact.Value.city, contact.Value.state, contact.Value.Zip);
-                            Console.WriteLine("Phone Number : {0}", contact.Value.phoneNumber);
-                            Console.WriteLine("Email Id : {0} ", contact.Value.emailId);
-                            Console.ReadLine();
-                        }
+                    Console.WriteLine("First Name : {0} || Last Name : {1}", contact.Value.firstName, contact.Value.lastName);
+                    Console.WriteLine("Address : {0} ", contact.Value.address);
+                    Console.WriteLine("City Name : {0} || State Name : {1} || ZipCode : {2}", contact.Value.city, contact.Value.state, contact.Value.Zip);
+                    Console.WriteLine("Phone Number : {0}", contact.Value.phoneNumber);
+                    Console.WriteLine("Email Id : {0} ", contact.Value.emailId);
+                    Console.ReadLine();
                 }
+            }
         }
         //Method to edit contacts(UC3)
         public void EditContact(string personName, string bookName)
@@ -109,15 +109,15 @@ namespace AddressBook
         //For Checking If AddressBook Is Present Or Not(UC6)
         public void CheckAddressBook(string bookName)
         {
-                foreach (var book in addressContactBook)
+            foreach (var book in addressContactBook)
+            {
+                if (book.Key == bookName)
                 {
-                        if (book.Key == bookName)
-                        {
-                            Console.WriteLine("Switching To Book Name : " + bookName);
-                            Console.ReadLine();
-                            break;
-                        }
+                    Console.WriteLine("Switching To Book Name : " + bookName);
+                    Console.ReadLine();
+                    break;
                 }
+            }
             Console.Write("Book Name Doesnt Exist");
         }
         //Returning the bookname with contact values to view(UC6 
@@ -175,7 +175,7 @@ namespace AddressBook
             CreateStateDictionary();
             foreach (AddressBookEntry addressbookobj in addressContactBook.Values)
             {
-                List<Contact> contactList =GetListOfDistionaryContactKeys(addressbookobj.personsCity);
+                List<Contact> contactList = GetListOfDistionaryContactKeys(addressbookobj.personsCity);
                 foreach (Contact contact in contactList.FindAll(c => c.state.Equals(state)).ToList())
                 {
                     Console.WriteLine(contact.ToString());
@@ -258,7 +258,7 @@ namespace AddressBook
             }
             Console.WriteLine();
         }
-        //Method to sort the entries in the address book(UC11)
+        //Method to sort the entries in the address book by name(UC11)
         public void SortRecordsByName()
         {
             foreach (AddressBookEntry addressBookobj in addressContactBook.Values)
@@ -268,6 +268,43 @@ namespace AddressBook
                 foreach (string personName in list)
                 {
                     Console.WriteLine(addressBookobj.contactList[personName]);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by city(UC12)
+        public void SortRecordsByCity()
+        {
+            CreateCityDictionary();
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfDistionaryContactKeys(addressBookObj.personsCity);
+                foreach (Contact contact in contactList.OrderBy(c => c.city).ToList())
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by state(UC12)
+        public void SortRecordsByState()
+        {
+            CreateStateDictionary();
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfDistionaryContactKeys(addressBookObj.personsState);
+                foreach (Contact contact in contactList.OrderBy(c => c.state).ToList())
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by zipcode(UC12)
+        public void SortRecordsByZip()
+        {
+            foreach (AddressBookEntry addressBookobj in addressContactBook.Values)
+            {
+                foreach (Contact contact in addressBookobj.contactList.Values.OrderBy(c => c.Zip).ToList())
+                {
+                    Console.WriteLine(contact);
                 }
             }
         }
