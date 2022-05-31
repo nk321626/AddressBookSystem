@@ -27,7 +27,9 @@ namespace AddressBook
                                   "\n9: Delete Person Details" +
                                   "\n10: Show AddressBook" +
                                   "\n11: Search Person By City Or State" +
-                                  "\n12: Exit"
+                                  "\n12: Count Person By City Or State" +
+                                  "\n13: Sort Entries by Name" +
+                                  "\n14: Exit"
                                   );
                 Console.Write("Enter The Choice From Above : ");
                 bool flag = int.TryParse(Console.ReadLine(), out int userChoice);
@@ -68,19 +70,19 @@ namespace AddressBook
                         break;
                     case 7:
                         //Editing a contact details with given name(UC3)
-                        Console.Write("Enter The First Name Exactly To View Contact Records: ");
+                        Console.Write("Enter The Full Name Exactly To View Contact Records: ");
                         string personName = Console.ReadLine();
                         addressBook.ViewContact(personName, bookName);
                         break;
                     case 8:
                         //Editing a contact details with given name(UC3)
-                        Console.Write("Enter The First Name Exactly To Edit Contact Records: ");
+                        Console.Write("Enter The Full Name Exactly To Edit Contact Records: ");
                         string fName = Console.ReadLine();
                         addressBook.EditContact(fName, bookName);
                         break;
                     case 9:
                         //Deleting a contact details with given name(UC4)
-                        Console.Write("Enter The First Name Exactly To Delete Contact Records : ");
+                        Console.Write("Enter The Full Name Exactly To Delete Contact Records : ");
                         string firstName = Console.ReadLine();
                         addressBook.DeleteContact(firstName, bookName);
                         break;
@@ -129,6 +131,9 @@ namespace AddressBook
                             addressBook.DisplayCountByCityandState();
                             break;
                         case 13:
+                            addressBook.SortRecordsByName();
+                            break;
+                        case 14:
                         Environment.Exit(0);
                             break;
                         default:
