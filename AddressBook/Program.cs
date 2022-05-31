@@ -11,7 +11,7 @@ namespace AddressBook
         public static void Main(string[] args)
         {
             //Display Welcome Message
-            Console.WriteLine("Welcome To Address Book Program");
+            Console.WriteLine("**********Welcome To Address Book Program***********");
             //Create Objects
             AddressBookEntry addressBook = new AddressBookEntry();
             while (true)
@@ -26,10 +26,12 @@ namespace AddressBook
                                   "\n8: Edit Person Details" +
                                   "\n9: Delete Person Details" +
                                   "\n10: Show AddressBook" +
-                                  "\n11: Exit"
+                                  "\n11: Search Person By City Or State" +
+                                  "\n12: Exit"
                                   );
                 Console.Write("Enter The Choice From Above : ");
-                int userChoice = int.Parse(Console.ReadLine());
+                bool flag = int.TryParse(Console.ReadLine(), out int userChoice);
+                if (flag)
                 switch (userChoice)
                 {
                     case 1:
@@ -104,14 +106,36 @@ namespace AddressBook
                             }
                         }
                         break;
-                    case 11:
+                        case 11:
+                            //Taking the input city and state from the user to search the person(UC8)
+                            Console.WriteLine("\n1.Search by city \n2.Search by state");
+                            int option = Convert.ToInt32(Console.ReadLine());
+                            switch (option)
+                            {
+                                case 1:
+                                    Console.Write("Enter name of city to search the person for : ");
+                                    addressBook.SearchPersonByCity(Console.ReadLine());
+                                    break;
+                                case 2:
+                                    Console.Write("Enter name of state to search the person from :");
+                                    addressBook.SearchPersonByState(Console.ReadLine());
+                                    break;
+                                default:
+                                    Console.WriteLine("Enter A Right Choice Either 1 or 2");
+                                    break;
+                            }
+                            break;
+                        case 12:
                         Environment.Exit(0);
-                        break;
-                    default:
+                            break;
+                        default:
                         Console.WriteLine("Enter A Right Choice");
-                        continue;
+                           continue;
                 }
+                else
+                    Console.WriteLine("Enter Some Input Value");
             }
+
         }
 
     }
